@@ -47,9 +47,9 @@
           (en règles normales)
         </h2>
 
-        <div class="level">
-          <div class="level-item has-text-centered">
-            <div>
+        <div class="tile is-ancestor c-values">
+          <div class="tile is-parent">
+            <div class="tile is-child notification c-values__block c-values__block--primary">
               <p class="heading">
                 exactement <input class="c-input-number c-input-number--heading" type="number" placeholder="k">
                 fois le nombre <input class="c-input-number c-input-number--heading" type="number" placeholder="x">
@@ -58,25 +58,47 @@
               <p class="title">3,456</p>
             </div>
           </div>
-          <div class="level-item has-text-centered">
-            <div>
+          
+          <div class="tile is-parent">
+            <div class="tile is-child notification c-values__block c-values__block--primary">
               <p class="heading">au moins k fois le nombre l ou le paco</p>
               <p class="title">123</p>
             </div>
           </div>
-        </div>
 
-        <div class="level">
-          <div class="level-item has-text-centered">
-            <div>
+          <div class="tile is-parent">
+            <div class="tile is-child notification c-values__block c-values__block--primary">
               <p class="heading">exactement k fois le paco</p>
               <p class="title">456K</p>
             </div>
           </div>
-          <div class="level-item has-text-centered">
-            <div>
+
+          <div class="tile is-parent">
+            <div class="tile is-child notification c-values__block c-values__block--primary">
               <p class="heading">au moins k fois le paco</p>
               <p class="title">789</p>
+            </div>
+          </div>
+        </div>
+
+        <h1 class="title">
+          Parmis mes <input class="c-input-number c-input-number--title" type="number" placeholder="m"> dés, j'ai
+        </h1>
+
+        <div class="tile is-ancestor c-values">
+          <div class="tile is-parent">
+            <div class="tile is-child notification c-values__block c-values__block--primary">
+              <p class="heading">
+                exactement j fois le nombre l ou le paco
+              </p>
+              <p class="title">3,456</p>
+            </div>
+          </div>
+          
+          <div class="tile is-parent">
+            <div class="tile is-child notification c-values__block c-values__block--primary">
+              <p class="heading">exactement j fois le paco</p>
+              <p class="title">123</p>
             </div>
           </div>
         </div>
@@ -112,27 +134,35 @@ export default {
 </script>
 
 <style lang="scss">
-.c-input-number {
-  background: transparentize(white, 0.9);
-  border: none;
-  text-align: left;
-  padding-left: 16px;
-  color: white;
-  font-weight: 600;
-
-  &::placeholder {
+  .c-input-number {
+    background: transparentize(white, 0.9);
+    border: none;
+    text-align: left;
+    padding-left: 16px;
     color: white;
+    font-weight: 600;
+
+    &::placeholder {
+      color: white;
+    }
+
+    &--title {
+      line-height: 1.125;
+      font-size: 2rem;
+      width: 64px;
+    }
+
+    &--heading {
+      font-size: 1rem;
+      width: 48px;
+    }
   }
 
-  &--title {
-    line-height: 1.125;
-    font-size: 2rem;
-    width: 64px;
+  .c-values {
+    &__block {
+      &--primary {
+        background-color: transparentize(#00d1b2, 0.75);
+      }
+    }
   }
-
-  &--heading {
-    font-size: 1rem;
-    width: 48px;
-  }
-}
 </style>
