@@ -16,22 +16,14 @@
           </span>
           <div class="nav-right nav-menu">
             <a class="nav-item is-active">
-              Home
+              Accueil
             </a>
             <a class="nav-item">
-              Examples
+              Exemples
             </a>
             <a class="nav-item">
               Documentation
             </a>
-            <span class="nav-item">
-              <a class="button is-success is-inverted">
-                <span class="icon">
-                  <i class="fa fa-github"></i>
-                </span>
-                <span>Download</span>
-              </a>
-            </span>
           </div>
         </div>
       </header>
@@ -41,7 +33,7 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <h1 class="title">
-          Parmis <input class="c-input-number c-input-number--title" type="number" placeholder="n"> dés, il y a
+          Parmis <input v-model.number="n" class="c-input-number c-input-number--title" type="number" placeholder="n" min="0" step="1"> dés, il y a
         </h1>
         <h2 class="subtitle">
           (en règles normales)
@@ -51,32 +43,32 @@
           <div class="tile is-parent">
             <div class="tile is-child notification c-values__block c-values__block--primary">
               <p class="heading">
-                exactement <input class="c-input-number c-input-number--heading" type="number" placeholder="k">
-                fois le nombre <input class="c-input-number c-input-number--heading" type="number" placeholder="x">
+                exactement <input v-model.number="k" class="c-input-number c-input-number--heading" type="number" placeholder="k" min="0" :max="n" step="1">
+                fois le nombre <input v-model.number="l" class="c-input-number c-input-number--heading" type="number" placeholder="x" min="2" max="6">
                 ou le paco
               </p>
-              <p class="title">3,456</p>
+              <p class="title">{{ Pankl | percentage }}</p>
             </div>
           </div>
-          
+
           <div class="tile is-parent">
             <div class="tile is-child notification c-values__block c-values__block--primary">
-              <p class="heading">au moins k fois le nombre l ou le paco</p>
-              <p class="title">123</p>
+              <p class="heading">au moins {{ k }} fois le nombre {{ l || 'x' }} ou le paco</p>
+              <p class="title">{{ PAnkl | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child notification c-values__block c-values__block--primary">
               <p class="heading">exactement k fois le paco</p>
-              <p class="title">456K</p>
+              <p class="title">{{ Pankpaco | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child notification c-values__block c-values__block--primary">
               <p class="heading">au moins k fois le paco</p>
-              <p class="title">789</p>
+              <p class="title">{{ PAnkpaco | percentage }}</p>
             </div>
           </div>
         </div>
@@ -94,7 +86,7 @@
               <p class="title">3,456</p>
             </div>
           </div>
-          
+
           <div class="tile is-parent">
             <div class="tile is-child notification c-values__block c-values__block--primary">
               <p class="heading">exactement j fois le paco</p>
@@ -104,33 +96,72 @@
         </div>
       </div>
     </div>
-
-    <!-- Hero footer: will stick at the bottom -->
-    <div class="hero-foot">
-      <nav class="tabs is-boxed is-fullwidth">
-        <div class="container">
-          <ul>
-            <li class="is-active"><a>Overview</a></li>
-            <li><a>Modifiers</a></li>
-            <li><a>Grid</a></li>
-            <li><a>Elements</a></li>
-            <li><a>Components</a></li>
-            <li><a>Layout</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+  import math from 'mathjs'
+  import Logo from '~/components/Logo.vue'
 
-export default {
-  components: {
-    Logo
+  if (process.browser) {
+    window.math = math
   }
-}
+
+  export default {
+    components: {
+      Logo
+    },
+    data () {
+      return {
+        n: null,
+        k: null,
+        l: null,
+        m: null,
+        j: null
+      }
+    },
+    computed: {
+      // Parmis n dés, il y a exactement k fois le nombre l ou le paco
+      Pankl () {
+        try {
+          return math.eval(`${math.combinations(this.n, this.k)} * ((2 ^ (${this.n} - ${this.k})) / (3 ^ ${this.n}))`)
+        } catch (error) { console.warn(error) }
+      },
+      // Parmis n dés, il y a au moins k fois le nombre l ou le paco
+      PAnkl () {
+        try {
+          let result = null
+          for (let i = 0; i < this.n - this.k + 1; i++) {
+            result += math.eval(`${math.combinations(this.n, i + this.k)} * ((2 ^ (${this.n} - ${i + this.k})) / (3 ^ ${this.n}))`)
+          }
+          return result
+        } catch (error) { console.warn(error) }
+      },
+      // Parmis n dés, il y a exactement k fois le paco
+      Pankpaco () {
+        try {
+          return math.eval(`${math.combinations(this.n, this.k)} * ((5 ^ (${this.n} - ${this.k})) / (6 ^ ${this.n}))`)
+        } catch (error) { console.warn(error) }
+      },
+      // Parmis n dés, il y a exactement k fois le paco
+      PAnkpaco () {
+        try {
+          let result = null
+          for (let i = 0; i < this.n - this.k + 1; i++) {
+            result += math.eval(`${math.combinations(this.n, i + this.k)} * ((5 ^ (${this.n} - ${i + this.k})) / (6 ^ ${this.n}))`)
+          }
+          return result
+        } catch (error) { console.warn(error) }
+      }
+    },
+    filters: {
+      percentage: function (value) {
+        try {
+          return math.format(math.eval(`${value} * 100`), {notation: 'fixed', precision: 2}) + ' %'
+        } catch (error) { console.warn(error) }
+      }
+    }
+  }
 </script>
 
 <style lang="scss">
@@ -149,7 +180,7 @@ export default {
     &--title {
       line-height: 1.125;
       font-size: 2rem;
-      width: 64px;
+      width: 68px;
     }
 
     &--heading {
