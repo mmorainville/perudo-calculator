@@ -44,8 +44,7 @@
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(Pankl)">
               <p class="heading">
                 exactement <input v-model.number="k" class="c-input-number c-input-number--heading" type="number" placeholder="k" min="0" :max="n" step="1">
-                fois le nombre <input v-model.number="l" class="c-input-number c-input-number--heading" type="number" placeholder="x" min="2" max="6">
-                ou le paco
+                fois un nombre de 2 à 6 ou le paco
               </p>
               <p class="title" :title="Pankl">{{ Pankl | percentage }}</p>
             </div>
@@ -53,21 +52,21 @@
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(PAnkl)">
-              <p class="heading">au moins {{ k }} fois le nombre {{ l || 'x' }} ou le paco</p>
+              <p class="heading">au moins {{ k || 'k' }} fois un nombre de 2 à 6 ou le paco</p>
               <p class="title" :title="PAnkl">{{ PAnkl | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(Pankpaco)">
-              <p class="heading">exactement {{ k }} fois le paco</p>
+              <p class="heading">exactement {{ k || 'k' }} fois le paco</p>
               <p class="title" :title="Pankpaco">{{ Pankpaco | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(PAnkpaco)">
-              <p class="heading">au moins {{ k }} fois le paco</p>
+              <p class="heading">au moins {{ k || 'k' }} fois le paco</p>
               <p class="title" :title="PAnkpaco">{{ PAnkpaco | percentage }}</p>
             </div>
           </div>
@@ -76,8 +75,7 @@
         <h1 class="title">
           Parmi mes <input v-model.number="m" class="c-input-number c-input-number--title" type="number" placeholder="m" min="1" :max="n > 5 ? 5 : n">
           dés, j'ai exactement <input v-model.number="j" class="c-input-number c-input-number--title" type="number" placeholder="j" min="0" :max="m">
-          fois le nombre <input v-model.number="l" class="c-input-number c-input-number--title" type="number" placeholder="x" min="2" max="6">
-          ou le paco
+          fois un nombre de 2 à 6 ou le paco
         </h1>
         <h2 class="subtitle">
           alors, parmi {{ n || 'n' }} dés, il y a
@@ -88,7 +86,7 @@
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(Pankl_mjl)">
               <p class="heading">
                 exactement <input v-model.number="k" class="c-input-number c-input-number--heading" type="number" placeholder="k" min="0" :max="n" step="1">
-                fois le nombre <input v-model.number="l" class="c-input-number c-input-number--heading" type="number" placeholder="x" min="2" max="6">
+                fois un nombre de 2 à 6
                 ou le paco
               </p>
               <p class="title" :title="Pankl_mjl">{{ Pankl_mjl | percentage }}</p>
@@ -97,21 +95,21 @@
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(PAnkl_mjl)">
-              <p class="heading">au moins {{ k }} fois le nombre {{ l || 'x' }} ou le paco</p>
+              <p class="heading">au moins {{ k || 'k' }} fois un nombre de 2 à 6 ou le paco</p>
               <p class="title" :title="PAnkl_mjl">{{ PAnkl_mjl | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(Pankpaco_mjpaco)">
-              <p class="heading">exactement {{ k }} fois le paco</p>
+              <p class="heading">exactement {{ k || 'k' }} fois le paco</p>
               <p class="title" :title="Pankpaco_mjpaco">{{ Pankpaco_mjpaco | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(PAnkpaco_mjpaco)">
-              <p class="heading">au moins {{ k }} fois le paco</p>
+              <p class="heading">au moins {{ k || 'k' }} fois le paco</p>
               <p class="title" :title="PAnkpaco_mjpaco">{{ PAnkpaco_mjpaco | percentage }}</p>
             </div>
           </div>
@@ -137,17 +135,16 @@
       return {
         n: null,
         k: null,
-        l: null,
         m: null,
         j: null
       }
     },
     computed: {
-      // Parmis n dés, il y a exactement k fois le nombre l ou le paco
+      // Parmis n dés, il y a exactement k fois un nombre de 2 à 6 ou le paco
       Pankl () {
         return this.getExactly(this.n, this.k)
       },
-      // Parmis n dés, il y a au moins k fois le nombre l ou le paco
+      // Parmis n dés, il y a au moins k fois un nombre de 2 à 6 ou le paco
       PAnkl () {
         return this.getAtLeast(this.n, this.k)
       },
@@ -162,7 +159,7 @@
       Pankl_mjl () {
         return this.getExactly(this.n - this.m, this.k - this.j)
       },
-      // Parmis n dés, il y a au moins k fois le nombre l ou le paco
+      // Parmis n dés, il y a au moins k fois un nombre de 2 à 6 ou le paco
       PAnkl_mjl () {
         return this.getAtLeast(this.n - this.m, this.k - this.j)
       },
@@ -240,20 +237,22 @@
 
   .c-values {
     &__block {
+      background-color: transparent;
+
       &--success {
-        background-color: transparentize(hsl(141, 71%, 48%), 0.5);
+        background-color: transparentize(hsl(141, 71%, 48%), 0.2);
       }
 
       &--primary {
-        background-color: transparentize(hsl(171, 100%, 41%), 0.5);
+        background-color: transparentize(hsl(171, 100%, 41%), 0.2);
       }
 
       &--warning {
-        background-color: transparentize(hsl(48, 100%, 67%), 0.75);
+        background-color: transparentize(hsl(48, 100%, 67%), 0.2);
       }
 
       &--danger {
-        background-color: transparentize(hsl(348, 100%, 61%), 0.5);
+        background-color: transparentize(hsl(348, 100%, 61%), 0.2);
       }
     }
   }
