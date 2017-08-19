@@ -41,7 +41,7 @@
 
         <div class="tile is-ancestor c-values">
           <div class="tile is-parent">
-            <div class="tile is-child notification c-values__block c-values__block--primary">
+            <div class="tile is-child box is-shadowless has-text-white c-values__block c-values__block--primary">
               <p class="heading">
                 exactement <input v-model.number="k" class="c-input-number c-input-number--heading" type="number" placeholder="k" min="0" :max="n" step="1">
                 fois le nombre <input v-model.number="l" class="c-input-number c-input-number--heading" type="number" placeholder="x" min="2" max="6">
@@ -52,21 +52,21 @@
           </div>
 
           <div class="tile is-parent">
-            <div class="tile is-child notification c-values__block c-values__block--primary">
+            <div class="tile is-child box is-shadowless has-text-white c-values__block c-values__block--primary">
               <p class="heading">au moins {{ k }} fois le nombre {{ l || 'x' }} ou le paco</p>
               <p class="title">{{ PAnkl | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
-            <div class="tile is-child notification c-values__block c-values__block--primary">
+            <div class="tile is-child box is-shadowless has-text-white c-values__block c-values__block--primary">
               <p class="heading">exactement k fois le paco</p>
               <p class="title">{{ Pankpaco | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
-            <div class="tile is-child notification c-values__block c-values__block--primary">
+            <div class="tile is-child box is-shadowless has-text-white c-values__block c-values__block--primary">
               <p class="heading">au moins k fois le paco</p>
               <p class="title">{{ PAnkpaco | percentage }}</p>
             </div>
@@ -79,7 +79,7 @@
 
         <div class="tile is-ancestor c-values">
           <div class="tile is-parent">
-            <div class="tile is-child notification c-values__block c-values__block--primary">
+            <div class="tile is-child box is-shadowless has-text-white c-values__block c-values__block--primary">
               <p class="heading">
                 exactement j fois le nombre l ou le paco
               </p>
@@ -88,7 +88,7 @@
           </div>
 
           <div class="tile is-parent">
-            <div class="tile is-child notification c-values__block c-values__block--primary">
+            <div class="tile is-child box is-shadowless has-text-white c-values__block c-values__block--primary">
               <p class="heading">exactement j fois le paco</p>
               <p class="title">123</p>
             </div>
@@ -192,7 +192,7 @@
   .c-values {
     &__block {
       &--primary {
-        background-color: transparentize(#00d1b2, 0.75);
+        background-color: transparentize(#00d1b2, 0.5);
       }
     }
   }
