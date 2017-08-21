@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@nuxtjs/google-analytics@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/google-analytics/-/google-analytics-1.0.0.tgz#aa48d47237fa46d1decc5a47ec1bf6a67049640f"
+
 "@nuxtjs/youch@3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@nuxtjs/youch/-/youch-3.0.1.tgz#332bfea84c91c60798cbb693b5622d40ab782fb0"
@@ -5077,6 +5081,10 @@ vm-browserify@0.0.4:
 vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
+
+vue-i18n@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.1.1.tgz#c37259c9088bf821144b393146d342686e9554ea"
 
 vue-loader@^13.0.4:
   version "13.0.4"

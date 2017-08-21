@@ -13,11 +13,13 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/google-analytics": "^1.0.0",
     "bulma": "^0.5.1",
     "mathjs": "^3.16.1",
     "node-sass": "^4.5.3",
     "nuxt": "^1.0.0-rc3",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "vue-i18n": "^7.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

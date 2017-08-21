@@ -37,5 +37,8 @@ module.exports = {
   },
   css: [
     'bulma'
+  ],
+  modules: [
+    ['@nuxtjs/google-analytics', {ua: 'UA-99912536-2'}],
   ]
 }

@@ -1,33 +1,7 @@
 <template>
   <section class="hero is-info is-fullheight">
     <!-- Hero header: will stick at the top -->
-    <div class="hero-head">
-      <header class="nav">
-        <div class="container">
-          <div class="nav-left">
-            <a class="nav-item">
-              Perudo Calculator
-            </a>
-          </div>
-          <span class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-          <div class="nav-right nav-menu">
-            <a class="nav-item is-active">
-              Accueil
-            </a>
-            <a class="nav-item">
-              Exemples
-            </a>
-            <a class="nav-item">
-              Documentation
-            </a>
-          </div>
-        </div>
-      </header>
-    </div>
+    <navbar></navbar>
 
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
@@ -121,7 +95,7 @@
 
 <script>
   import math from 'mathjs'
-  import Logo from '~/components/Logo.vue'
+  import Navbar from '~/components/Navbar'
 
   if (process.browser) {
     window.math = math
@@ -129,7 +103,7 @@
 
   export default {
     components: {
-      Logo
+      Navbar
     },
     data () {
       return {
