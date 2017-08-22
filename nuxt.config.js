@@ -33,7 +33,15 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: ['vue-i18n']
+  },
+  router: {
+    middleware: 'i18n'
+  },
+  plugins: ['~/plugins/i18n.js'],
+  generate: {
+    routes: ['/', '/documentation', '/fr', '/fr/documentation']
   },
   css: [
     'bulma'
