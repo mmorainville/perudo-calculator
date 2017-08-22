@@ -9,3 +9,4 @@ deploy:
   provider: surge
   project: ./dist/
   domain: https://perudo-calculator.surge.sh
+  skip_cleanup: true
