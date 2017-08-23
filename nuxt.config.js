@@ -37,7 +37,8 @@ module.exports = {
     vendor: ['vue-i18n']
   },
   router: {
-    middleware: 'i18n'
+    middleware: 'i18n',
+    linkActiveClass: 'is-active'
   },
   plugins: ['~/plugins/i18n.js'],
   generate: {
