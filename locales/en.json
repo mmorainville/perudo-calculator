@@ -1,19 +1,12 @@
 {
-  "links": {
-    "home": "Home",
-    "about": "About",
-    "english": "English version",
-    "french": "French version"
-  },
-  "home": {
-    "title": "Welcome",
-    "introduction": "This is an introduction in English."
-  },
-  "about": {
-    "title": "About",
-    "introduction": "This page is made to give you more informations."
+  "global": {
+    "home": "Home"
   },
   "index": {
     "subtitle": "(using standard rules)"
+  },
+  "documentation": {
+    "warning": "Warning",
+    "warningMessage": "This page exists currently only in french. If you want to help translate it, you can do so on <a href=\"https://github.com/mmorainville/perudo-calculator\">GitHub</a>."
   }
 }

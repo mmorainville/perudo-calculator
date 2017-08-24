@@ -8,12 +8,10 @@
       <div class="container">
         <article v-if="displayWarning" class="message is-warning">
           <div class="message-header">
-            <p>Attention</p>
+            <p>{{ $t('documentation.warning') }}</p>
             <button class="delete" aria-label="delete" @click="displayWarning = false"></button>
           </div>
-          <div class="message-body">
-            Cette page n'existe actuellement qu'en français. Si vous voulez participer à sa traduction, vous pouvez participer sur <a href="https://github.com/mmorainville/perudo-calculator">GitHub</a>.
-          </div>
+          <div class="message-body" v-html="$t('documentation.warningMessage')"></div>
         </article>
 
         <div class="content">
@@ -39,6 +37,40 @@
             <li><em>a<sub>m,j,l</sub></em> : l’évènement « Parmi mes m dés, j’ai exactement j fois le nombre l ou le paco »</li>
             <li><em>a<sub>m,j,paco</sub></em> : l’évènement « Parmi mes m dés, j’ai exactement j fois le paco »</li>
           </ul>
+
+          <h2>Formules</h2>
+
+          <!-- P(a_{n,k,l}) = \binom{n}{k}\frac{2^{n-k}}{3^{n}} -->
+          <figure>
+            <img src="~/assets/Pankl.svg">
+            <figcaption>
+              Parmi n dés, il y a exactement k fois un nombre de 2 à 6 ou le paco
+            </figcaption>
+          </figure>
+
+          <!-- P(A_{n,k,l}) = \sum_{i=k}^{n}\binom{n}{i}\frac{2^{n-i}}{3^{n}} -->
+          <figure>
+            <img src="~/assets/Pankl_sum.svg">
+            <figcaption>
+              Parmi n dés, il y a au moins k fois un nombre de 2 à 6 ou le paco
+            </figcaption>
+          </figure>
+
+          <!-- P(a_{n,k,paco}) = \binom{n}{k}\frac{5^{n-k}}{6^{n}} -->
+          <figure>
+            <img src="~/assets/Pankpaco.svg">
+            <figcaption>
+              Parmi n dés, il y a exactement k fois le paco (ou un nombre de 2 à 6 en Palifico)
+            </figcaption>
+          </figure>
+
+          <!-- P(A_{n,k,paco}) = \sum_{i=k}^{n}\binom{n}{i}\frac{5^{n-i}}{6^{n}} -->
+          <figure>
+            <img src="~/assets/Pankpaco_sum.svg">
+            <figcaption>
+              Parmi n dés, il y a au moins k fois le paco (ou un nombre de 2 à 6 en Palifico)
+            </figcaption>
+          </figure>
 
           <hr>
 

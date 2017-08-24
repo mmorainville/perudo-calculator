@@ -114,35 +114,35 @@
       }
     },
     computed: {
-      // Parmis n dés, il y a exactement k fois un nombre de 2 à 6 ou le paco
+      // Parmi n dés, il y a exactement k fois un nombre de 2 à 6 ou le paco
       Pankl () {
         return this.getExactly(this.n, this.k)
       },
-      // Parmis n dés, il y a au moins k fois un nombre de 2 à 6 ou le paco
+      // Parmi n dés, il y a au moins k fois un nombre de 2 à 6 ou le paco
       PAnkl () {
         return this.getAtLeast(this.n, this.k)
       },
-      // Parmis n dés, il y a exactement k fois le paco
+      // Parmi n dés, il y a exactement k fois le paco
       Pankpaco () {
         return this.getExactly(this.n, this.k, true)
       },
-      // Parmis n dés, il y a au moins k fois le paco
+      // Parmi n dés, il y a au moins k fois le paco
       PAnkpaco () {
         return this.getAtLeast(this.n, this.k, true)
       },
-      // Parmis n dés, il y a exactement k fois un nombre de 2 à 6 ou le paco, sachant que j'ai exactement j fois un nombre de 2 à 6 ou le paco parmi mes m dés
+      // Parmi n dés, il y a exactement k fois un nombre de 2 à 6 ou le paco, sachant que j'ai exactement j fois un nombre de 2 à 6 ou le paco parmi mes m dés
       Pankl_mjl () {
         return this.getExactly(this.n - this.m, this.k - this.j)
       },
-      // Parmis n dés, il y a au moins k fois un nombre de 2 à 6 ou le paco, sachant que j'ai exactement j fois un nombre de 2 à 6 ou le paco parmi mes m dés
+      // Parmi n dés, il y a au moins k fois un nombre de 2 à 6 ou le paco, sachant que j'ai exactement j fois un nombre de 2 à 6 ou le paco parmi mes m dés
       PAnkl_mjl () {
         return this.getAtLeast(this.n - this.m, this.k - this.j)
       },
-      // Parmis n dés, il y a exactement k fois le paco, sachant que j'ai exactement j fois un nombre de 2 à 6 ou le paco parmi mes m dés
+      // Parmi n dés, il y a exactement k fois le paco, sachant que j'ai exactement j fois un nombre de 2 à 6 ou le paco parmi mes m dés
       Pankpaco_mjpaco () {
         return this.getExactly(this.n - this.m, this.k - this.j, true)
       },
-      // Parmis n dés, il y a au moins k fois le paco, sachant que j'ai exactement j fois un nombre de 2 à 6 ou le paco parmi mes m dés
+      // Parmi n dés, il y a au moins k fois le paco, sachant que j'ai exactement j fois un nombre de 2 à 6 ou le paco parmi mes m dés
       PAnkpaco_mjpaco () {
         return this.getAtLeast(this.n - this.m, this.k - this.j, true)
       }

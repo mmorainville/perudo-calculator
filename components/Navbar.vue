@@ -14,7 +14,7 @@
         </span>
         <div class="nav-right nav-menu" :class="{ 'is-active': isMenuOpened }">
           <nuxt-link class="nav-item" :to="path('/')" exact>
-            Accueil
+            {{ $t('global.home') }}
           </nuxt-link>
           <nuxt-link class="nav-item" :to="path('/documentation')" exact>
             Documentation
