@@ -3,7 +3,14 @@
     "home": "Accueil"
   },
   "index": {
-    "subtitle": "(en règles normales)"
+    "title": "Parmi {0} dés, il y a",
+    "subtitle": "(en règles normales)",
+    "Pankl": "exactement {0} fois un nombre de 2 à 6 ou le paco",
+    "Pankl_sum": "au moins {0} fois un nombre de 2 à 6 ou le paco",
+    "Pankpaco": "exactement {0} fois le paco",
+    "Pankpaco_sum": "au moins {0} fois le paco",
+    "titleConditional": "Parmi mes {0} dés, j'ai exactement {1} fois un nombre de 2 à 6 ou le paco",
+    "subtitleConditional": "alors, parmi {0} dés, il y a"
   },
   "documentation": {
     "warning": "Attention",

@@ -6,9 +6,9 @@
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h1 class="title">
-          Parmi <input v-model.number="n" class="c-input-number c-input-number--title" type="number" placeholder="n" :min="k || 1" step="1"> dés, il y a
-        </h1>
+        <i18n path="index.title" tag="h1" class="title">
+          <input v-model.number="n" class="c-input-number c-input-number--title" type="number" placeholder="n" :min="k || 1" step="1">
+        </i18n>
         <h2 class="subtitle">
           {{ $t('index.subtitle') }}
         </h2>
@@ -16,74 +16,70 @@
         <div class="tile is-ancestor c-values">
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(Pankl)">
-              <p class="heading">
-                exactement <input v-model.number="k" class="c-input-number c-input-number--heading" type="number" placeholder="k" min="0" :max="n" step="1">
-                fois un nombre de 2 à 6 ou le paco
-              </p>
+              <i18n path="index.Pankl" tag="p" class="heading">
+                <input v-model.number="k" class="c-input-number c-input-number--heading" type="number" placeholder="k" min="0" :max="n" step="1">
+              </i18n>
               <p class="title" :title="Pankl">{{ Pankl | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(PAnkl)">
-              <p class="heading">au moins {{ k || 'k' }} fois un nombre de 2 à 6 ou le paco</p>
+              <i18n path="index.Pankl_sum" tag="p" class="heading">{{ k || 'k' }}</i18n>
               <p class="title" :title="PAnkl">{{ PAnkl | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(Pankpaco)">
-              <p class="heading">exactement {{ k || 'k' }} fois le paco</p>
+              <i18n path="index.Pankpaco" tag="p" class="heading">{{ k || 'k' }}</i18n>
               <p class="title" :title="Pankpaco">{{ Pankpaco | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(PAnkpaco)">
-              <p class="heading">au moins {{ k || 'k' }} fois le paco</p>
+              <i18n path="index.Pankpaco_sum" tag="p" class="heading">{{ k || 'k' }}</i18n>
               <p class="title" :title="PAnkpaco">{{ PAnkpaco | percentage }}</p>
             </div>
           </div>
         </div>
 
-        <h1 class="title">
-          Parmi mes <input v-model.number="m" class="c-input-number c-input-number--title" type="number" placeholder="m" min="1" :max="n > 5 ? 5 : n">
-          dés, j'ai exactement <input v-model.number="j" class="c-input-number c-input-number--title" type="number" placeholder="j" min="0" :max="m">
-          fois un nombre de 2 à 6 ou le paco
-        </h1>
-        <h2 class="subtitle">
-          alors, parmi {{ n || 'n' }} dés, il y a
-        </h2>
+        <i18n path="index.titleConditional" tag="h1" class="title">
+          <input v-model.number="m" class="c-input-number c-input-number--title" type="number" placeholder="m" min="1" :max="n > 5 ? 5 : n">
+          <input v-model.number="j" class="c-input-number c-input-number--title" type="number" placeholder="j" min="0" :max="m">
+        </i18n>
+        <i18n path="index.subtitleConditional" tag="h1" class="subtitle">
+          {{ n || 'n' }}
+        </i18n>
 
         <div class="tile is-ancestor c-values">
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(Pankl_mjl)">
-              <p class="heading">
-                exactement <input v-model.number="k" class="c-input-number c-input-number--heading" type="number" placeholder="k" min="0" :max="n" step="1">
-                fois un nombre de 2 à 6
-                ou le paco
-              </p>
+              <i18n path="index.Pankl" tag="p" class="heading">
+                <input v-model.number="k" class="c-input-number c-input-number--heading" type="number" placeholder="k" min="0" :max="n" step="1">
+              </i18n>
               <p class="title" :title="Pankl_mjl">{{ Pankl_mjl | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(PAnkl_mjl)">
-              <p class="heading">au moins {{ k || 'k' }} fois un nombre de 2 à 6 ou le paco</p>
+              <i18n path="index.Pankl_sum" tag="p" class="heading">{{ k || 'k' }}</i18n>
               <p class="title" :title="PAnkl_mjl">{{ PAnkl_mjl | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(Pankpaco_mjpaco)">
-              <p class="heading">exactement {{ k || 'k' }} fois le paco</p>
+              <i18n path="index.Pankpaco" tag="p" class="heading">{{ k || 'k' }}</i18n>
               <p class="title" :title="Pankpaco_mjpaco">{{ Pankpaco_mjpaco | percentage }}</p>
             </div>
           </div>
 
           <div class="tile is-parent">
             <div class="tile is-child box is-shadowless has-text-white c-values__block" :class="getBoxBackgroundColor(PAnkpaco_mjpaco)">
-              <p class="heading">au moins {{ k || 'k' }} fois le paco</p>
+              <i18n path="index.Pankpaco_sum" tag="p" class="heading">{{ k || 'k' }}</i18n>
               <p class="title" :title="PAnkpaco_mjpaco">{{ PAnkpaco_mjpaco | percentage }}</p>
             </div>
           </div>

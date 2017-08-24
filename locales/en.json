@@ -3,7 +3,14 @@
     "home": "Home"
   },
   "index": {
-    "subtitle": "(using standard rules)"
+    "title": "Among {0} dice, there is",
+    "subtitle": "(using standard rules)",
+    "Pankl": "exactly {0} times a number between 2 à 6 or the paco",
+    "Pankl_sum": "at least {0} times a number between 2 à 6 or the paco",
+    "Pankpaco": "exactly {0} times the paco",
+    "Pankpaco_sum": "at least {0} times the paco",
+    "titleConditional": "Among my {0} dice, I have exactly {1} times a number between 2 à 6 or the paco",
+    "subtitleConditional": "then, among {0} dice, there is"
   },
   "documentation": {
     "warning": "Warning",
