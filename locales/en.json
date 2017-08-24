@@ -4,6 +4,9 @@
     "donate": "Donate"
   },
   "index": {
+    "head": {
+      "title": "Perudo Calculator - Get the probabilities when playing Perudo (or Liar's dice)"
+    },
     "title": "Among {0} dice, there is",
     "subtitle": "(using standard rules)",
     "Pankl": "exactly {0} times a number between 2 à 6 or the paco",

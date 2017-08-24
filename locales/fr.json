@@ -4,6 +4,9 @@
     "donate": "Faire un don"
   },
   "index": {
+    "head": {
+      "title": "Perudo Calculator - Calcul des probabilités au Perudo"
+    },
     "title": "Parmi {0} dés, il y a",
     "subtitle": "(en règles normales)",
     "Pankl": "exactement {0} fois un nombre de 2 à 6 ou le paco",

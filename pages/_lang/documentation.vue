@@ -88,6 +88,11 @@
   import Navbar from '~/components/Navbar'
 
   export default {
+    head () {
+      return {
+        title: this.$t('index.head.title')
+      }
+    },
     components: {
       Navbar
     },
