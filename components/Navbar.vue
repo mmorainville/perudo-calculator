@@ -29,6 +29,10 @@
           <span class="nav-item" v-if="$i18n.locale === 'fr'">
             <nuxt-link class="button is-info is-inverted" :to="$route.fullPath.replace(/^\/[^\/]+/, '')" active-class="none" exact>EN</nuxt-link>
           </span>
+
+          <span class="nav-item">
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LSLE7DV2RNB5L" class="button is-warning is-outlined">{{ $t('global.donate') }}</a>
+          </span>
         </div>
       </div>
     </header>

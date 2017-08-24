@@ -1,6 +1,7 @@
 {
   "global": {
-    "home": "Accueil"
+    "home": "Accueil",
+    "donate": "Faire un don"
   },
   "index": {
     "title": "Parmi {0} dés, il y a",

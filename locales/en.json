@@ -1,6 +1,7 @@
 {
   "global": {
-    "home": "Home"
+    "home": "Home",
+    "donate": "Donate"
   },
   "index": {
     "title": "Among {0} dice, there is",
